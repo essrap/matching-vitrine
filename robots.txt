@@ -1,4 +1,8 @@
+# La vitrine est faite pour être indexée : tout est ouvert. L'application
+# (app.mreguel.com) a son propre robots.txt, beaucoup plus fermé — son contenu
+# est rendu en JavaScript et n'a rien à apporter aux moteurs.
 User-agent: *
 Allow: /
 
+# Un seul sitemap couvre les deux langues (/ et /ar/).
 Sitemap: https://mreguel.com/sitemap.xml

@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- Les deux versions linguistiques sont déclarées ici ET liées entre elles par
+     xhtml:link : Google n'accepte les alternates que réciproques, et le sitemap
+     est le seul endroit où on peut l'affirmer pour les deux pages à la fois.
+     `lastmod` n'est à toucher que quand le contenu change réellement — une date
+     qui bouge sans raison ne fait que griller de la confiance. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mreguel.com/</loc>
+    <xhtml:link rel="alternate" hreflang="fr-TN" href="https://mreguel.com/" />
+    <xhtml:link rel="alternate" hreflang="ar-TN" href="https://mreguel.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mreguel.com/" />
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mreguel.com/ar/</loc>
+    <xhtml:link rel="alternate" hreflang="fr-TN" href="https://mreguel.com/" />
+    <xhtml:link rel="alternate" hreflang="ar-TN" href="https://mreguel.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mreguel.com/" />
+    <lastmod>2026-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

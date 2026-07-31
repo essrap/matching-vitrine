@@ -147,9 +147,12 @@
 
   .hero h1 { font-size: clamp(2.5rem, 7.4vw, 4.5rem); margin-block: 1rem .25rem; }
   .hero h1 .quiet { color: var(--muted); }
+  /* À taille égale, l'arabe occupe plus de largeur : sans ce réglage le titre du
+     héros passe de deux à quatre lignes et pousse l'appel à l'action vers le bas. */
+  [lang="ar"] .hero h1 { font-size: clamp(2.125rem, 5.4vw, 3.375rem); }
   .ticked { position: relative; white-space: nowrap; }
   .ticked svg {
-    position: absolute; left: 0; bottom: -.14em; width: 100%; height: .26em;
+    position: absolute; inset-inline-start: 0; bottom: -.14em; width: 100%; height: .26em;
     overflow: visible; color: var(--safran);
   }
   .ticked path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.2s .45s cubic-bezier(.22,.61,.36,1) forwards; }
@@ -170,21 +173,25 @@
   }
   .scene-frame > svg { width: 100%; height: auto; }
   .stamp {
-    position: absolute; right: 5%; bottom: 7%;
+    position: absolute; inset-inline-end: 5%; bottom: 7%;
     display: grid; place-items: center; gap: .125rem;
     width: clamp(6.5rem, 15vw, 8.5rem); aspect-ratio: 1;
     border: 3px solid var(--terracotta); border-radius: 50%;
     color: var(--terracotta); background: color-mix(in srgb, var(--surface) 86%, transparent);
     font-family: var(--serif); font-size: clamp(1rem, 2.4vw, 1.375rem); font-weight: 600;
-    transform: rotate(-13deg) scale(.4); opacity: 0;
+    /* L'inclinaison passe par une variable : en RTL le tampon change de côté
+       (inset-inline-end), il doit pencher dans l'autre sens pour rester lisible. */
+    --stamp-tilt: -13deg;
+    transform: rotate(var(--stamp-tilt)) scale(.4); opacity: 0;
     animation: stamp .5s 1.5s cubic-bezier(.2,1.5,.5,1) forwards;
   }
   .stamp small { font-family: var(--sans); font-size: .5625rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; }
-  @keyframes stamp { to { transform: rotate(-13deg) scale(1); opacity: 1; } }
+  [dir="rtl"] .stamp { --stamp-tilt: 13deg; }
+  @keyframes stamp { to { transform: rotate(var(--stamp-tilt)) scale(1); opacity: 1; } }
 
   @media (prefers-reduced-motion: reduce) {
     .ticked path { animation: none; stroke-dashoffset: 0; }
-    .stamp { animation: none; transform: rotate(-13deg); opacity: 1; }
+    .stamp { animation: none; transform: rotate(var(--stamp-tilt)); opacity: 1; }
     .reveal { opacity: 1 !important; transform: none !important; }
   }
 
@@ -213,7 +220,7 @@
   .case-art { position: relative; aspect-ratio: 4 / 3; background: var(--azur-50); }
   .case-art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .case-tag {
-    position: absolute; top: .75rem; left: .75rem; z-index: 2;
+    position: absolute; top: .75rem; inset-inline-start: .75rem; z-index: 2;
     font-size: .6875rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
     padding: .3125rem .625rem; border-radius: 999px;
     background: var(--terracotta); color: #fff;
@@ -270,6 +277,27 @@
   .trades a:hover { border-color: var(--azur); color: var(--azur); transform: translateY(-2px); }
   .trades svg { color: var(--terracotta); flex: none; }
   .trades a:hover svg { color: var(--azur); }
+
+  /* Les familles hors bâtiment portent chacune plusieurs prestations : une
+     carte texte les nomme toutes, là où la grille .trades imposerait une icône
+     par prestation et dix rangées. */
+  .families { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); }
+  .families li {
+    padding: 1rem 1.125rem; background: var(--surface);
+    border: 1px solid var(--line); border-radius: 10px;
+  }
+  .band .families li, .band-sunk .families li { background: var(--ground); }
+  .families h3 { font-family: var(--sans); font-size: .9375rem; font-weight: 650; margin-block: 0 .25rem; }
+  .families p { font-size: .8125rem; color: var(--muted); margin: 0; }
+
+  /* Bascule de langue : discrète dans l'en-tête, mais toujours atteignable —
+     c'est le seul chemin vers l'autre version pour un visiteur déjà arrivé. */
+  .lang {
+    font-size: .875rem; color: var(--ink-soft); text-decoration: none;
+    padding: .3125rem .75rem; border: 1px solid var(--line); border-radius: 999px;
+    flex: none;
+  }
+  .lang:hover { color: var(--azur); border-color: var(--azur); }
 
   .cities { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0; }
   .cities li {

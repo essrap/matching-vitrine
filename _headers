@@ -19,6 +19,26 @@
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
 
+# Chaque chemin est listé explicitement : Pages n'applique pas la règle de `/`
+# aux sous-dossiers, la version arabe et la page d'erreur ont donc besoin de
+# leurs propres blocs.
+/ar/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ar/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/404.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# robots.txt et sitemap.xml pilotent l'indexation : ils doivent être revalidés,
+# sinon un crawler retombe des heures durant sur une version périmée.
+/robots.txt
+  Cache-Control: public, max-age=0, must-revalidate
+
+/sitemap.xml
+  Cache-Control: public, max-age=0, must-revalidate
+
 # Les assets sont référencés par un nom fixe, donc pas d'empreinte de contenu :
 # une semaine, pas un an — sinon une correction de style mettrait un an à
 # atteindre les visiteurs déjà venus.

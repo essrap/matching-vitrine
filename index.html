@@ -4,42 +4,70 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Mreguel — Artisans vérifiés à Sousse et dans le Sahel. C'est réglé.</title>
-  <meta name="description" content="Une fuite, une panne, une serrure claquée ? Décrivez votre souci en une minute et recevez des devis écrits d'artisans vérifiés du Sahel tunisien. Gratuit, sans engagement, aucun appel à passer." />
+  <title>Artisans et services à domicile à Sousse — Mreguel</title>
+  <meta name="description" content="Fuite, clim en panne, ménage, coiffure, dépannage informatique : décrivez votre besoin en une minute et recevez des devis écrits de pros vérifiés du Sahel." />
   <link rel="canonical" href="https://mreguel.com/" />
+
+  <!-- Une langue par URL. Chaque version déclare la paire complète plus
+       x-default : Google n'honore les alternates que s'ils sont réciproques. -->
+  <link rel="alternate" hreflang="fr-TN" href="https://mreguel.com/" />
+  <link rel="alternate" hreflang="ar-TN" href="https://mreguel.com/ar/" />
+  <link rel="alternate" hreflang="x-default" href="https://mreguel.com/" />
+
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0f5a74" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <!-- Partage social. og:image doit être un PNG/JPEG : la plupart des plateformes
-       ignorent le SVG. Voir README-vitrine.md — un export reste à produire. -->
+       ignorent le SVG. -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Mreguel" />
   <meta property="og:locale" content="fr_TN" />
+  <meta property="og:locale:alternate" content="ar_TN" />
   <meta property="og:url" content="https://mreguel.com/" />
-  <meta property="og:title" content="Mreguel — Artisans vérifiés à Sousse et dans le Sahel" />
-  <meta property="og:description" content="Décrivez votre souci, recevez des devis écrits d'artisans vérifiés. Gratuit, sans engagement." />
+  <meta property="og:title" content="Mreguel — Artisans et services à domicile vérifiés à Sousse" />
+  <meta property="og:description" content="Décrivez votre besoin, recevez des devis écrits de pros vérifiés du Sahel. Gratuit, sans engagement." />
   <meta property="og:image" content="https://mreguel.com/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Mreguel — des devis écrits d'artisans et de prestataires vérifiés du Sahel tunisien." />
+  <!-- X/Twitter ne retombe pas toujours sur les balises og: quand la carte est
+       explicite : on répète le strict nécessaire plutôt que d'espérer. -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mreguel — Artisans et services à domicile vérifiés à Sousse" />
+  <meta name="twitter:description" content="Décrivez votre besoin, recevez des devis écrits de pros vérifiés du Sahel. Gratuit, sans engagement." />
+  <meta name="twitter:image" content="https://mreguel.com/og.png" />
+  <meta name="twitter:image:alt" content="Mreguel — des devis écrits d'artisans et de prestataires vérifiés du Sahel tunisien." />
 
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Données structurées : l'entreprise, et la FAQ (éligible aux résultats
-       enrichis Google — les questions ci-dessous sont réelles, pas décoratives). -->
+  <!-- Données structurées : le site, l'entreprise avec son catalogue, et la FAQ
+       (éligible aux résultats enrichis Google — les questions ci-dessous sont
+       réelles, pas décoratives). Le catalogue reprend les familles et les
+       prestations réellement présentes en base (GET /api/v1/categories) : c'est
+       ce qui décrit l'offre aux moteurs, il doit rester synchronisé. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://mreguel.com/#website",
+        "url": "https://mreguel.com/",
+        "name": "Mreguel",
+        "inLanguage": "fr-TN",
+        "publisher": { "@id": "https://mreguel.com/#business" }
+      },
       {
         "@type": "LocalBusiness",
         "@id": "https://mreguel.com/#business",
         "name": "Mreguel Service",
         "url": "https://mreguel.com/",
         "email": "mreguel@gmail.com",
-        "description": "Plateforme de mise en relation entre particuliers et artisans vérifiés du Sahel tunisien.",
+        "logo": "https://mreguel.com/favicon.svg",
+        "image": "https://mreguel.com/og.png",
+        "description": "Plateforme de mise en relation entre particuliers et prestataires vérifiés du Sahel tunisien : artisans du bâtiment, ménage, jardinage, déménagement, beauté, cours, événementiel, informatique, auto, santé à domicile et services aux entreprises.",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Cité SNIT",
@@ -56,12 +84,133 @@
           { "@type": "City", "name": "Kalâa Seghira" },
           { "@type": "City", "name": "Msaken" },
           { "@type": "City", "name": "Enfidha" },
+          { "@type": "City", "name": "Port El Kantaoui" },
           { "@type": "City", "name": "Monastir" }
-        ]
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Prestations disponibles sur Mreguel",
+          "itemListElement": [
+            {
+              "@type": "OfferCatalog",
+              "name": "Maison & Travaux",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Plomberie" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Électricité" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Peinture" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Menuiserie" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Maçonnerie" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Climatisation & Chauffage" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Serrurerie" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vitrerie" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Ménage & Jardinage",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ménage à domicile" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Repassage" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Jardinage" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nettoyage de vitres" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nettoyage professionnel" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Déménagement & Transport",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Déménagement" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Livraison" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Transport de meubles" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manutention" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Beauté & Bien-être",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Coiffure" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Esthétique & Soins" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Massage" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Maquillage" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manucure" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Cours & Formation",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Soutien scolaire" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Langues" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Musique" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Coaching sportif" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cours d'informatique" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Événementiel",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Traiteur" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Photographe" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vidéaste" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DJ & Musique" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Décoration" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Animation" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Informatique & Digital",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dépannage informatique" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Développement web" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Design graphique" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Réseaux" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Community management" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Auto & Moto",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mécanique" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lavage auto" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dépannage & Remorquage" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pneus" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnostic" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Santé à domicile",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Infirmier(e)" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kinésithérapie" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aide aux personnes âgées" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Garde d'enfants" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Services Pro",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Comptabilité" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Juridique" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Traduction" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Conseil & Consulting" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Rédaction" } }
+              ]
+            }
+          ]
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://mreguel.com/#faq",
+        "inLanguage": "fr-TN",
+        "isPartOf": { "@id": "https://mreguel.com/#website" },
         "mainEntity": [
           {
             "@type": "Question",
@@ -120,6 +269,7 @@
       <a href="#metiers">Métiers</a>
       <a href="#artisans">Vous êtes artisan</a>
     </nav>
+    <a class="lang" href="/ar/" lang="ar" hreflang="ar" dir="rtl">العربية</a>
     <a class="btn btn-primary" href="#demande">Publier une demande</a>
   </div>
 </header>
@@ -493,20 +643,29 @@
       <ul class="trades reveal">
         <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-5-7-13-7-13S5 10 5 15a7 7 0 0 0 7 7z"></path></svg>Plomberie</a></li>
         <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"></path></svg>Électricité</a></li>
-        <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3 3 15l6 6L21 9z"></path><path d="m12 6 6 6"></path></svg>Menuiserie</a></li>
         <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v6H4z"></path><path d="M12 10v5"></path><rect x="9" y="15" width="6" height="7" rx="2"></rect></svg>Peinture</a></li>
+        <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3 3 15l6 6L21 9z"></path><path d="m12 6 6 6"></path></svg>Menuiserie</a></li>
         <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18v5H3zM3 13h18v5H3z"></path><path d="M9 6v5M15 13v5"></path></svg>Maçonnerie</a></li>
         <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="9" rx="2"></rect><path d="M7 18q2 3 0 4M12 18q2 3 0 4M17 18q2 3 0 4"></path></svg>Climatisation</a></li>
-        <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"></path></svg>Carrelage</a></li>
         <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="5"></circle><path d="m13 13 7 7M17 17l3-3"></path></svg>Serrurerie</a></li>
-        <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"></rect><path d="M12 3v18M4 12h16"></path></svg>Aluminium</a></li>
-        <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 21V12h6v9"></path></svg>Ferronnerie</a></li>
-        <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17h18M6 17V9l6-5 6 5v8"></path><path d="M10 21h4"></path></svg>Étanchéité</a></li>
-        <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8l1 5H7z"></path><path d="M9 9v11h6V9"></path></svg>Nettoyage</a></li>
-        <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V10"></path><path d="M12 10C12 6 9 3 5 3c0 4 3 7 7 7z"></path><path d="M12 10c0-4 3-7 7-7 0 4-3 7-7 7z"></path></svg>Jardinage</a></li>
-        <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="13" height="10" rx="1"></rect><path d="M15 10h4l3 4v3h-7z"></path><circle cx="7" cy="19" r="2"></circle><circle cx="18" cy="19" r="2"></circle></svg>Déménagement</a></li>
-        <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"></rect><path d="M5 10h14"></path><path d="M9 6h2M9 15h2"></path></svg>Électroménager</a></li>
-        <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18v3H3zM5 11v9M19 11v9"></path><path d="M9 15h6"></path></svg>Faux plafond</a></li>
+        <li><a href="#demande"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"></rect><path d="M12 3v18M4 12h16"></path></svg>Vitrerie</a></li>
+      </ul>
+
+      <div class="section-head reveal" style="margin-block: 3.5rem 1.5rem;">
+        <p class="eyebrow">Et pas seulement le bâtiment</p>
+        <h2>Dix familles de services, un seul réflexe</h2>
+        <p>Le même mécanisme sert pour tout ce qu'on fait venir chez soi : on décrit, on reçoit des devis, on choisit.</p>
+      </div>
+      <ul class="families reveal">
+        <li><h3>Ménage & Jardinage</h3><p>Ménage à domicile, repassage, jardinage, nettoyage de vitres, nettoyage professionnel.</p></li>
+        <li><h3>Déménagement & Transport</h3><p>Déménagement, livraison, transport de meubles, manutention.</p></li>
+        <li><h3>Beauté & Bien-être</h3><p>Coiffure, esthétique et soins, massage, maquillage, manucure.</p></li>
+        <li><h3>Cours & Formation</h3><p>Soutien scolaire, langues, musique, coaching sportif, cours d'informatique.</p></li>
+        <li><h3>Événementiel</h3><p>Traiteur, photographe, vidéaste, DJ, décoration, animation.</p></li>
+        <li><h3>Informatique & Digital</h3><p>Dépannage informatique, développement web, design graphique, réseaux, community management.</p></li>
+        <li><h3>Auto & Moto</h3><p>Mécanique, lavage auto, dépannage et remorquage, pneus, diagnostic.</p></li>
+        <li><h3>Santé à domicile</h3><p>Infirmier(e), kinésithérapie, aide aux personnes âgées, garde d'enfants.</p></li>
+        <li><h3>Services Pro</h3><p>Comptabilité, juridique, traduction, conseil, rédaction.</p></li>
       </ul>
 
       <div class="section-head reveal" style="margin-block: 3.5rem 1.5rem;">
@@ -650,6 +809,7 @@
           <li><a href="https://app.mreguel.com/confidentialite">Politique de confidentialité</a></li>
           <li><a href="https://app.mreguel.com/suppression-compte">Suppression de compte</a></li>
           <li><a href="mailto:mreguel@gmail.com">mreguel@gmail.com</a></li>
+          <li><a href="/ar/" lang="ar" hreflang="ar" dir="rtl">العربية</a></li>
         </ul>
       </div>
     </div>
