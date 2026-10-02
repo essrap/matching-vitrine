@@ -127,6 +127,21 @@
   .btn-ghost:hover { border-color: var(--azur); color: var(--azur); }
   .btn-lg { min-height: 3.375rem; padding: 0 1.75rem; font-size: 1rem; }
 
+  /* Badge Google Play : noir dans les deux thèmes, comme le badge officiel */
+  .store-row { margin-block-start: 1.25rem; }
+  .store-badge {
+    display: inline-flex; align-items: center; gap: .625rem;
+    min-height: 3.375rem; padding: 0 1.125rem;
+    background: #000; color: #fff; border: 1px solid #a6a6a6; border-radius: 8px;
+    text-decoration: none; line-height: 1.1;
+    transition: background-color .16s, transform .16s;
+  }
+  .store-badge:hover { background: #1a1a1a; }
+  .store-badge:active { transform: translateY(1px); }
+  .store-badge svg { flex: none; }
+  .store-badge span { font-size: 1.125rem; font-weight: 600; }
+  .store-badge small { display: block; font-size: .625rem; font-weight: 500; letter-spacing: .06em; }
+
   /* ================= Héros ================= */
   .hero { position: relative; padding-block: clamp(2.5rem, 7vw, 5rem) 0; overflow: hidden; }
   /* Le zellige, motif de ton app, en fond vivant. */
